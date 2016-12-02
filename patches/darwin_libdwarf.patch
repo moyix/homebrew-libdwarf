@@ -12,7 +12,7 @@ diff -uNr a/dwarf-20161124/Makefile.in b/dwarf-20161124/Makefile.in
  	rm -f dwarfgen/config.status 
 diff -uNr a/dwarf-20161124/libdwarf/Makefile.in b/dwarf-20161124/libdwarf/Makefile.in
 --- a/dwarf-20161124/libdwarf/Makefile.in	2016-11-24 16:15:02.000000000 -0500
-+++ b/dwarf-20161124/libdwarf/Makefile.in	2016-12-02 17:29:37.000000000 -0500
++++ b/dwarf-20161124/libdwarf/Makefile.in	2016-12-02 17:54:00.000000000 -0500
 @@ -55,7 +55,7 @@
  dwfwall =       @dwfwall@
  dwfsanitize =   @dwfsanitize@
@@ -30,10 +30,21 @@ diff -uNr a/dwarf-20161124/libdwarf/Makefile.in b/dwarf-20161124/libdwarf/Makefi
 -	$(CC) $(CFLAGS) $(LDFLAGS) -shared $(OBJS) -Wl,-soname=$(SONAME)  dwarf_names.o $(dwfzlib) -o $@
 -	ln libdwarf.so $(SONAME)
 +libdwarf.dylib: dwarf_names.h dwarf_names.c $(OBJS) dwarf_names.o
-+	$(CC) $(CFLAGS) $(LDFLAGS) -shared $(OBJS) -Wl,-install_name=$(SONAME)  dwarf_names.o $(dwfzlib) -o $@
++	$(CC) $(CFLAGS) $(LDFLAGS) -shared $(OBJS) -Wl,-install_name,$(SONAME)  dwarf_names.o $(dwfzlib) -o $@
  
  none:
  	echo "do nothing " $@
+@@ -222,7 +221,9 @@
+ 	rm -f *~
+ 
+ install: all
+-	echo "No install provided, see comments in the README"
++	install -c libdwarf.h $(prefix)/include
++	install -c dwarf.h $(prefix)/include
++	install -c libdwarf.dylib $(prefix)/lib
+ 
+ distclean:	clean
+ 	rm -f config.status config.log config.cache config.h
 diff -uNr a/dwarf-20161124/libdwarf/configure.in b/dwarf-20161124/libdwarf/configure.in
 --- a/dwarf-20161124/libdwarf/configure.in	2016-09-30 15:45:48.000000000 -0400
 +++ b/dwarf-20161124/libdwarf/configure.in	2016-12-02 17:29:17.000000000 -0500
