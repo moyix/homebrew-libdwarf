@@ -1,6 +1,6 @@
 diff -uNr a/dwarf-20161124/Makefile.in b/dwarf-20161124/Makefile.in
 --- a/dwarf-20161124/Makefile.in	2016-06-16 11:47:27.000000000 -0400
-+++ b/dwarf-20161124/Makefile.in	2016-12-02 18:02:09.000000000 -0500
++++ b/dwarf-20161124/Makefile.in	2016-12-02 18:08:05.000000000 -0500
 @@ -68,7 +68,6 @@
  
  basic:
@@ -9,7 +9,14 @@ diff -uNr a/dwarf-20161124/Makefile.in b/dwarf-20161124/Makefile.in
  
  # The dd target takes the least space and time
  # to build.
-@@ -83,7 +82,7 @@
+@@ -76,14 +75,12 @@
+ 	cd libdwarf && make
+ 	cd dwarfdump && make
+ all:    basic
+-	cd dwarfgen && make
+-	cd dwarfexample && make
+ 
+ clean:
  	sh ./CLEANUP
  
  install: all
