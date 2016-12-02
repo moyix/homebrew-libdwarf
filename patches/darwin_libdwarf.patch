@@ -12,7 +12,7 @@ diff -uNr a/dwarf-20161124/Makefile.in b/dwarf-20161124/Makefile.in
  	rm -f dwarfgen/config.status 
 diff -uNr a/dwarf-20161124/libdwarf/Makefile.in b/dwarf-20161124/libdwarf/Makefile.in
 --- a/dwarf-20161124/libdwarf/Makefile.in	2016-11-24 16:15:02.000000000 -0500
-+++ b/dwarf-20161124/libdwarf/Makefile.in	2016-12-02 17:54:00.000000000 -0500
++++ b/dwarf-20161124/libdwarf/Makefile.in	2016-12-02 17:59:29.000000000 -0500
 @@ -55,7 +55,7 @@
  dwfwall =       @dwfwall@
  dwfsanitize =   @dwfsanitize@
@@ -30,7 +30,7 @@ diff -uNr a/dwarf-20161124/libdwarf/Makefile.in b/dwarf-20161124/libdwarf/Makefi
 -	$(CC) $(CFLAGS) $(LDFLAGS) -shared $(OBJS) -Wl,-soname=$(SONAME)  dwarf_names.o $(dwfzlib) -o $@
 -	ln libdwarf.so $(SONAME)
 +libdwarf.dylib: dwarf_names.h dwarf_names.c $(OBJS) dwarf_names.o
-+	$(CC) $(CFLAGS) $(LDFLAGS) -shared $(OBJS) -Wl,-install_name,$(SONAME)  dwarf_names.o $(dwfzlib) -o $@
++	$(CC) $(CFLAGS) $(LDFLAGS) -shared $(OBJS) -Wl,-install_name,$(SONAME)  dwarf_names.o -lelf $(dwfzlib) -o $@
  
  none:
  	echo "do nothing " $@
