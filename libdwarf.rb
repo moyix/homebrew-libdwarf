@@ -13,8 +13,8 @@ class Libdwarf < Formula
   depends_on "autoconf" => :build # if your formula requires any X11/XQuartz components
 
   patch :p2 do
-    url "https://raw.githubusercontent.com/moyix/homebrew-libdwarf/ac63cf6aa14c94251bfa31b1e275de441f1c4b35/patches/darwin_libdwarf.patch"
-    sha256 "d805561deec0cae484745e48d0ac13a3cf27c32b8575cd13fba0385d7fd03c00"
+    url "https://raw.githubusercontent.com/moyix/homebrew-libdwarf/c66723d4e37703c9cda1a12c686fd995b510dc0d/patches/darwin_libdwarf.patch"
+    sha256 "365a77fbe8f34f6374207444f8e47e38f7a1c76bf7046b453c6a72e2be46b877"
   end
 
   def install
