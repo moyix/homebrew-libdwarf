@@ -27,7 +27,7 @@ diff -uNr a/dwarf-20161124/Makefile.in b/dwarf-20161124/Makefile.in
  	rm -f dwarfgen/config.status 
 diff -uNr a/dwarf-20161124/libdwarf/Makefile.in b/dwarf-20161124/libdwarf/Makefile.in
 --- a/dwarf-20161124/libdwarf/Makefile.in	2016-11-24 16:15:02.000000000 -0500
-+++ b/dwarf-20161124/libdwarf/Makefile.in	2016-12-02 18:22:50.000000000 -0500
++++ b/dwarf-20161124/libdwarf/Makefile.in	2016-12-03 11:27:22.000000000 -0500
 @@ -55,7 +55,7 @@
  dwfwall =       @dwfwall@
  dwfsanitize =   @dwfsanitize@
@@ -54,9 +54,9 @@ diff -uNr a/dwarf-20161124/libdwarf/Makefile.in b/dwarf-20161124/libdwarf/Makefi
  
  install: all
 -	echo "No install provided, see comments in the README"
-+	mkdir -p $(prefix)/include $(prefix)/lib
-+	$(INSTALL) libdwarf.h $(prefix)/include/
-+	$(INSTALL) dwarf.h $(prefix)/include/
++	mkdir -p $(prefix)/include/libdwarf $(prefix)/lib
++	$(INSTALL) libdwarf.h $(prefix)/include/libdwarf/
++	$(INSTALL) dwarf.h $(prefix)/include/libdwarf/
 +	$(INSTALL) libdwarf.dylib $(prefix)/lib/
  
  distclean:	clean
